@@ -19,9 +19,9 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none">
+<body class="bg-background h-screen antialiased leading-none">
 <div id="app">
-    <nav class="bg-blue-900 shadow mb-8 py-6">
+    <nav class="bg-first shadow mb-8 py-6">
         <div class="container mx-auto px-6 md:px-0">
             <div class="flex items-center justify-center">
                 <div class="mr-6">

@@ -4,7 +4,16 @@ module.exports = {
     './resources/css/**/*.css',
   ],
   theme: {
-    extend: {}
+    extend: {
+        colors: {
+            background: '#1A1A1D',
+            foreground: '#4E4E50',
+            highlight: '#68686A',
+            first: '#6F2232',
+            second: '#950740',
+            third: '#C3073F',
+        },
+    },
   },
   variants: {},
   plugins: [
