@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(\route('plugin.index'));
+    //return view('welcome');
 });
 Auth::routes(['verify' => true]);
 
@@ -25,6 +26,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('plugins', function () {
     $plugins = \App\Plugin::paginate(2);
     return view('plugins.index')->with(['plugins' => $plugins]);
-});
+})->name('plugin.index');
+
+Route::get('plugins/categories/{category}', function ($category) {
+    $plugins = \App\Plugin::where('category_id', '=', $category)->paginate(2);
+    return view('plugins.index')->with(['plugins' => $plugins]);
+})->name('plugin.index.category.show');
 
 Route::get('plugins/{plugin}', 'PluginController@show')->name('plugin');
