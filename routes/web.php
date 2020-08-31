@@ -36,3 +36,5 @@ Route::get('plugins/categories/{category}', function ($category) {
 Route::get('plugins/{plugin}', 'PluginController@show')->name('plugins.show');
 
 Route::get('plugins/{plugin}/{page}', 'PluginController@show')->name('plugins.show.page');
+
+Route::get('releases/{pluginRelease}', 'PluginReleaseController@show')->name('plugin-releases.show');

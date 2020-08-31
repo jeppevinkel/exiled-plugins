@@ -17,7 +17,7 @@
                     <td class="px-4 py-4">{{ $release->exiled_version }}</td>
                     <td class="px-4 py-4">{{ $release->created_at->diffForHumans() }}</td>
                     <td class="px-4 py-4">{{ $release->downloads }}</td>
-                    <td class="px-4 py-4 text-right"><a class="hover:underline" href="{{ $release->download_url }}" target="_blank">Download</a></td>
+                    <td class="px-4 py-4 text-right"><a class="hover:underline" href="{{ route('plugin-releases.show', ['pluginRelease' => $release]) }}" target="_blank">Download</a></td>
                 </tr>
             @endforeach
             </tbody>
