@@ -13,22 +13,7 @@
         </div>
 
         <div class="w-full px-2 mt-2 markdown">
-            {{ Illuminate\Mail\Markdown::parse('
-![Logo Image](https://exiled.host/assets/images/123-128x80.jpg "EXILED Logo")
-# TEST
-## Some code example!
-```cs
-public float test = 0;
-RunTest(test);
-```
-## Haha description go brrr
-Lol, this is descript!!
-
-## Config stuffs [Lol](https://www.google.com)
-| Setting Key | Value Type | Default Value | Description |
-|-|-|-|-|
-| debug | boolean | false | Enables debug mode. |
-| enabled | boolean | true | Enables or disables the plugin. |') }}
+            {{ Illuminate\Mail\Markdown::parse($plugin->description) }}
 {{--            @php--}}
 {{--                $dom = new DOMDocument();--}}
 {{--                $dom->loadHTML(Illuminate\Mail\Markdown::parse('# TEST--}}
