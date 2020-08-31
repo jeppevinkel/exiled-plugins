@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect(\route('plugin.index'));
+    return redirect(\route('plugins.index'));
     //return view('welcome');
 });
 Auth::routes(['verify' => true]);
