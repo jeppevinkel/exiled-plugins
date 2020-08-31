@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/markdown.css') }}" rel="stylesheet" type="text/css" >
 </head>
 <body class="bg-background h-screen antialiased leading-none">
 <div id="app">
