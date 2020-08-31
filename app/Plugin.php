@@ -20,4 +20,9 @@ class Plugin extends Model
     {
         return $this->hasMany(PluginRelease::class);
     }
+
+    public function getLatestRelease()
+    {
+        return $this->releases->sortByDesc('created_at')->first();
+    }
 }

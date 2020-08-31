@@ -11,9 +11,9 @@
         <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
     @else
         <title>{{ config('app.name', 'Laravel') }}</title>
-    @endif
+@endif
 
-    <!-- Scripts -->
+<!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->
@@ -50,8 +50,9 @@
             </div>
         </div>
     </nav>
-
-    @yield('content')
+    <div class="container mx-auto px-6 md:px-0">
+        @yield('content')
+    </div>
 </div>
 </body>
 </html>

@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 
 class PluginController extends Controller
 {
-    public function show(Plugin $plugin)
+    public function show(Plugin $plugin, $page = null)
     {
-        return view('plugins.show', ['plugin' => $plugin]);
+        if ($page == null)
+            return view('plugins.show', ['plugin' => $plugin]);
+        else if ($page == 'releases')
+            return view('plugins.releases.show', ['plugin' => $plugin]);
+        else
+            return view('plugins.show', ['plugin' => $plugin]);
     }
 }

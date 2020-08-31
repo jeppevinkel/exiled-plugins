@@ -1,19 +1,18 @@
 @extends('layouts.plugins')
 
 @section('content')
-    <div class="container mx-auto px-6 md:px-0">
         <div class="bg-foreground pb-4 px-4 rounded-md w-full flex text-white">
             <div id="categories" class="w-1/6">
                 <div class="flex flex-col w-full pt-6">
                     <p class="ml-3 font-bold">Categories</p>
                     <div class="flex flex-col m-4 mt-1">
                         <div class="flex justify-between">
-                            <a class="@if(Route::currentRouteName() == 'plugin.index') font-semibold @endif" href="{{route('plugin.index')}}">All</a>
+                            <a class="@if(Route::currentRouteName() == 'plugins.index') font-semibold @endif" href="{{route('plugins.index')}}">All</a>
                             <p class="font-hairline text-gray-400">({{ \App\Plugin::all()->count() }})</p>
                         </div>
                         @foreach(\App\Category::all() as $category)
                             <div class="flex justify-between">
-                                <a class="@if(Route::current()->parameter('category') == $category->id) font-semibold @endif" href="{{route('plugin.index.category.show', ['category' => $category])}}">{{$category->name}}</a>
+                                <a class="@if(Route::current()->parameter('category') == $category->id) font-semibold @endif" href="{{route('plugins.index.category.show', ['category' => $category])}}">{{$category->name}}</a>
                                 <p class="font-hairline text-gray-400">({{ $category->plugins()->count() }})</p>
                             </div>
                         @endforeach
@@ -58,11 +57,11 @@
                             @foreach($plugins as $plugin)
                                 <tr class="hover:bg-gray-700 border-b border-gray-200 py-10">
                                     <td class="flex flex-col px-4 py-4">
-                                        <a class=" hover:underline" href="{{ route('plugin', ['plugin' => $plugin]) }}">{{ $plugin->name }}</a>
+                                        <a class=" hover:underline" href="{{ route('plugins.show', ['plugin' => $plugin]) }}">{{ $plugin->name }}</a>
                                         <div class="flex mt-2">
                                             <p class="text-xs font-hairline text-gray-400">{{ $plugin->created_at->format('M d, Y') }}</p>
                                             <p class="text-xs font-hairline mr-1">,</p>
-                                            <a class="text-xs font-hairline text-gray-400 hover:underline" href="{{route('plugin.index.category.show', ['category' => $plugin->category])}}">{{ $plugin->category->name }}</a>
+                                            <a class="text-xs font-hairline text-gray-400 hover:underline" href="{{route('plugins.index.category.show', ['category' => $plugin->category])}}">{{ $plugin->category->name }}</a>
                                         </div>
                                     </td>
                                     <td class="px-4 py-4">{{ $plugin->user->name }}</td>
@@ -95,5 +94,4 @@
                 @endif
             </div>
         </div>
-    </div>
 @endsection

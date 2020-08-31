@@ -26,11 +26,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('plugins', function () {
     $plugins = \App\Plugin::orderBy('updated_at', 'desc')->paginate(25);
     return view('plugins.index')->with(['plugins' => $plugins]);
-})->name('plugin.index');
+})->name('plugins.index');
 
 Route::get('plugins/categories/{category}', function ($category) {
     $plugins = \App\Plugin::where('category_id', '=', $category)->orderBy('updated_at', 'desc')->paginate(25);
     return view('plugins.index')->with(['plugins' => $plugins]);
-})->name('plugin.index.category.show');
+})->name('plugins.index.category.show');
 
-Route::get('plugins/{plugin}', 'PluginController@show')->name('plugin');
+Route::get('plugins/{plugin}', 'PluginController@show')->name('plugins.show');
+
+Route::get('plugins/{plugin}/{page}', 'PluginController@show')->name('plugins.show.page');
