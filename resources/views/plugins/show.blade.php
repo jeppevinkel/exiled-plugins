@@ -13,7 +13,9 @@
         </div>
 
         <div class="w-full px-2 mt-2 markdown">
-            {{ Illuminate\Mail\Markdown::parse('# TEST
+            {{ Illuminate\Mail\Markdown::parse('
+![Logo Image](https://exiled.host/assets/images/123-128x80.jpg "EXILED Logo")
+# TEST
 ## Some code example!
 ```cs
 public float test = 0;
