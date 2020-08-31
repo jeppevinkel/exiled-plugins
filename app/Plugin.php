@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plugin extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'description', 'user_id', 'category_id',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

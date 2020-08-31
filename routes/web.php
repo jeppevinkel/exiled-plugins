@@ -21,6 +21,9 @@ Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', 'HomeController@index')->name('home');
+
+    Route::get('plugins/create', 'PluginController@create')->name('plugins.create');
+    Route::post('plugins/create', 'PluginController@store')->name('plugins.store');
 });
 
 Route::get('plugins', function () {
