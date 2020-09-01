@@ -13,7 +13,7 @@
         </div>
 
         <div class="w-full flex justify-around px-2 mt-2">
-            <form class="w-full max-w-lg" method="post" action="{{ route('plugins.store') }}">
+            <form class="w-full max-w-3xl" method="post" action="{{ route('plugins.store') }}">
                 @csrf
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3 mb-6 md:mb-0">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
+                    <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2" for="plugin-description">
                             Description (markdown)
                         </label>
@@ -35,6 +35,27 @@
                         @error('plugin-description')
                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
+                    </div>
+                    <div class="w-full md:w-1/2 px-3 mt-5">
+                        <div class="appearance-none block w-full bg-gray-600 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight markdown" id="plugin-description-preview">
+
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
+                        <script>
+                            $(function() {
+                                // When using more than one `textarea` on your page, change the following
+                                // line to match the one you’re after.
+                                var $textarea = $('#plugin-description');
+                                var $preview = $('#plugin-description-preview');
+                                var convert = new showdown.Converter();
+
+                                // Instead of `keyup`, consider using `input` using this plugin: https://mathiasbynens.be/notes/oninput#comment-1
+                                $textarea.keyup(function() {
+                                    $preview.html(convert.makeHtml($textarea.val()));
+                                    console.log('test');
+                                }).trigger('keyup');
+                            });
+                        </script>
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
