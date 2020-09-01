@@ -36,8 +36,8 @@
                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="w-full md:w-1/2 px-3 mt-5">
-                        <div class="appearance-none block w-full bg-gray-600 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight markdown" id="plugin-description-preview">
+                    <div class="w-full md:w-1/2 px-3 mt-5 mb-3">
+                        <div class="appearance-none block w-full h-full bg-gray-600 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight markdown" id="plugin-description-preview">
 
                         </div>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
