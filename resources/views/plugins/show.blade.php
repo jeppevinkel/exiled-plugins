@@ -14,27 +14,6 @@
 
         <div class="w-full px-2 mt-2 markdown">
             {{ Illuminate\Mail\Markdown::parse($plugin->description) }}
-{{--            @php--}}
-{{--                $dom = new DOMDocument();--}}
-{{--                $dom->loadHTML(Illuminate\Mail\Markdown::parse('# TEST--}}
-
-{{--            Test2'));--}}
-
-{{--                foreach ($dom->getElementsByTagName('h1') as $k => $table)--}}
-{{--                {--}}
-{{--                    //dd($dom->getElementsByTagName('code'));--}}
-{{--                    // Within Each Table, Find the IMGs and Loop--}}
-{{--                    //$imgs = $table->;--}}
-{{--                    $table->setAttribute('class', 'markdown');--}}
-{{--                    //foreach ($imgs as $k2 => $img)--}}
-{{--                    //{--}}
-{{--                    //    // Set the IMGs Class attribute to whatever you want--}}
-{{--                    //    $img->setAttribute('class', 'markdown');--}}
-{{--                    //}--}}
-{{--                }--}}
-{{--                $html = $dom->saveHTML();--}}
-{{--                echo $html;--}}
-{{--            @endphp--}}
         </div>
         <div class="overflow-x-auto mt-6">
 
