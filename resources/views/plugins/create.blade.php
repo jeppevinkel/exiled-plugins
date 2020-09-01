@@ -20,7 +20,7 @@
                         <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2" for="plugin-name">
                             Plugin Name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border @error('plugin-name') border-red-500 @enderror rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="plugin-name" name="plugin-name" type="text" maxlength="128" placeholder="My Plugin">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border @error('plugin-name') border-red-500 @enderror rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="plugin-name" name="plugin-name" type="text" maxlength="128" placeholder="My Plugin" value="{{ old('plugin-name') }}">
                         @error('plugin-name')
                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
@@ -31,7 +31,7 @@
                         <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2" for="plugin-description">
                             Description (markdown)
                         </label>
-                        <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 @error('plugin-description') border-red-500 @enderror rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="plugin-description" name="plugin-description" placeholder="# My Plugin&#10;Awesome description."></textarea>
+                        <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 @error('plugin-description') border-red-500 @enderror rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="plugin-description" name="plugin-description" placeholder="# My Plugin&#10;Awesome description.">{{ old('plugin-description') }}</textarea>
                         @error('plugin-description')
                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
@@ -66,7 +66,7 @@
                         <div class="relative">
                             <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="plugin-category" name="plugin-category">
                                 @foreach(\App\Category::all() as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" @if($category->id == old('plugin-category')) selected @endif>{{ $category->name }}</option>
                                 @endforeach
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
