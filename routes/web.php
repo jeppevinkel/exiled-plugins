@@ -23,7 +23,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', 'HomeController@index')->name('home');
 
     Route::get('plugins/create', 'PluginController@create')->name('plugins.create');
-    Route::post('plugins/create', 'PluginController@store')->name('plugins.store');
+    Route::post('plugins', 'PluginController@store')->name('plugins.store');
+
+    Route::get('plugins/{plugin}/releases/create', 'PluginReleaseController@create')->name('plugin-releases.create');
+    Route::post('plugins/{plugin}/releases', 'PluginReleaseController@store')->name('plugin-releases.store');
 });
 
 Route::get('plugins', function () {
