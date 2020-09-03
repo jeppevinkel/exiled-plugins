@@ -1,28 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.plugins')
 
 @section('content')
     <div class="container mx-auto">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-sm">
-                <div class="flex flex-col break-words bg-white border-2 rounded shadow-md">
+                <div class="flex flex-col break-words bg-foreground border-2 rounded shadow-md">
 
-                    <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
+                    <div class="font-semibold bg-highlight text-gray-200 py-3 px-6 mb-0">
                         {{ __('Confirm Password') }}
                     </div>
 
                     <form class="w-full p-6" method="POST" action="{{ route('password.confirm') }}">
                         @csrf
 
-                        <p class="leading-normal">
+                        <p class="leading-normal text-gray-200">
                             {{ __('Please confirm your password before continuing.') }}
                         </p>
 
                         <div class="flex flex-wrap my-6">
-                            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">
+                            <label for="password" class="block text-gray-200 text-sm font-bold mb-2">
                                 {{ __('Password') }}:
                             </label>
 
-                            <input id="password" type="password" class="form-input w-full @error('password') border-red-500 @enderror" name="password" required autocomplete="new-password">
+                            <input id="password" type="password" class="form-input w-full bg-highlight border-background text-gray-200 @error('password') border-red-500 @enderror" name="password" required autocomplete="new-password">
 
                             @error('password')
                                 <p class="text-red-500 text-xs italic mt-4">
@@ -37,7 +37,7 @@
                             </button>
 
                             @if (Route::has('password.request'))
-                                <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline ml-auto" href="{{ route('password.request') }}">
+                                <a class="text-sm text-fourth hover:text-fifth whitespace-no-wrap no-underline ml-auto" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
