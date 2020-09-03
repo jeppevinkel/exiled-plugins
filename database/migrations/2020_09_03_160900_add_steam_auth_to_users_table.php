@@ -20,6 +20,7 @@ class AddSteamAuthToUsersTable extends Migration
 
             $table->string('name')->nullable()->change();
             $table->string('email')->nullable()->change();
+            $table->string('password')->nullable()->change();
         });
     }
 
@@ -35,6 +36,7 @@ class AddSteamAuthToUsersTable extends Migration
 
             $table->string('name')->change();
             $table->string('email')->unique()->change();
+            $table->string('password')->change();
         });
     }
 }
