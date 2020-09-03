@@ -21,7 +21,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('login/steam', 'Auth\SteamAuthController@login');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('home', 'HomeController@index')->name('home');
 
     Route::get('plugins/create', 'PluginController@create')->name('plugins.create');
