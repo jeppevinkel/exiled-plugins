@@ -17,6 +17,8 @@ class AddSteamAuthToUsersTable extends Migration
             $table->string('steam_avatar')->nullable();
             $table->string('steam_id')->nullable();
             $table->string('steam_name')->nullable();
+
+            $table->string('name')->nullable()->change();
         });
     }
 
@@ -29,6 +31,8 @@ class AddSteamAuthToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn(['steam_avatar', 'steam_id', 'steam_name']);
+
+            $table->string('name')->change();
         });
     }
 }
