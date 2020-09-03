@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f829c14f37993562a76382f311b144b1",
+    "content-hash": "05a74bc41d592fc7737573fb3e4a578d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1520,6 +1520,50 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "ilzrv/laravel-steam-auth",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ilzrv/laravel-steam-auth.git",
+                "reference": "8690df9f94846564aff23753aeb355761bc552a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ilzrv/laravel-steam-auth/zipball/8690df9f94846564aff23753aeb355761bc552a6",
+                "reference": "8690df9f94846564aff23753aeb355761bc552a6",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.5",
+                "laravel/framework": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ilzrv\\LaravelSteamAuth\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ilzrv\\LaravelSteamAuth\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ilia Lazarev",
+                    "email": "me@ilzrv.com"
+                }
+            ],
+            "description": "Steam Auth for Laravel 7",
+            "time": "2020-04-26T10:40:16+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
