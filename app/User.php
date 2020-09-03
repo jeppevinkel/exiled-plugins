@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'steam_id', 'steam_name', 'steam_avatar',
     ];
 
     /**
@@ -40,5 +40,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function plugins()
     {
         return $this->hasMany(Plugin::class);
+    }
+
+    public function getUsername()
+    {
+        return $this->name? $this->name : $this->steam_name;
     }
 }

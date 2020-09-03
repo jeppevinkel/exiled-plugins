@@ -64,7 +64,7 @@
                                             <a class="text-xs font-hairline text-gray-400 hover:underline" href="{{route('plugins.index.category.show', ['category' => $plugin->category])}}">{{ $plugin->category->name }}</a>
                                         </div>
                                     </td>
-                                    <td class="px-4 py-4">{{ $plugin->user->name }}</td>
+                                    <td class="px-4 py-4">{{ $plugin->user->getUsername() }}</td>
                                     <td class="flex flex-col px-4 py-4">
                                         <div class="flex justify-between text-xs">
                                             <p>Downloads:</p>
