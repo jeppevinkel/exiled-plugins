@@ -57,7 +57,7 @@
                             @foreach($plugins as $plugin)
                                 <tr class="hover:bg-gray-700 border-b border-gray-200 py-10">
                                     <td class="flex flex-col px-4 py-4">
-                                        <a class=" hover:underline" href="{{ route('plugins.show', ['plugin' => $plugin]) }}">{{ $plugin->name }}</a>
+                                        <a class=" hover:underline" href="{{ route('plugins.show', ['plugin' => $plugin->url_string]) }}">{{ $plugin->name }}</a>
                                         <div class="flex mt-2">
                                             <p class="text-xs font-hairline text-gray-400">{{ $plugin->created_at->format('M d, Y') }}</p>
                                             <p class="text-xs font-hairline mr-1">,</p>

@@ -69,11 +69,30 @@ class SteamAuthController extends Controller
      */
     protected function firstOrCreate(SteamData $data)
     {
-        return User::firstOrCreate([
-            'steam_id' => $data->getSteamId(),
-        ], [
-            'steam_name' => $data->getPersonaName(),
-            'steam_avatar' => $data->getAvatarFull()
-        ]);
+        $user = User::whereHas('steamAuth', function ($q) use($data) {
+            $q->where('id', $data->getSteamId());
+        })->first();
+        if ($user)
+        {
+            $user->steamAuth->updateTimestamps();
+            $user->steamAuth->save();
+
+            return $user;
+        }
+        else
+        {
+            $user = new User([
+                'name' => $data->getPersonaName(),
+            ]);
+            $user->save();
+            \App\SteamAuth::firstOrCreate([
+                'user_id' => $user->id,
+            ], [
+                'id' => $data->getSteamId(),
+                'avatar' => $data->getAvatarFull(),
+                'name' => $data->getPersonaName(),
+            ]);
+            return $user;
+        }
     }
 }

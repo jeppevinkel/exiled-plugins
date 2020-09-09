@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePluginsTable extends Migration
+class CreateSteamAuthsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,18 @@ class CreatePluginsTable extends Migration
      */
     public function up()
     {
-        Schema::create('plugins', function (Blueprint $table) {
-            $table->id();
-            $table->string('url_string')->nullable();
-            $table->string('name');
-            $table->text('description');
+        Schema::create('steam_auths', function (Blueprint $table) {
+            if (PHP_INT_MAX >= 9223372036854775807)
+            {
+                $table->unsignedBigInteger('id')->unique()->index();
+            }
+            else
+            {
+                $table->string('id')->unique()->index();
+            }
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->string('avatar')->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +36,6 @@ class CreatePluginsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plugins');
+        Schema::dropIfExists('steam_auths');
     }
 }

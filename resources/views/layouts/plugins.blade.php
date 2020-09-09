@@ -34,24 +34,27 @@
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
-                <div class="flex-1 text-right">
                     @guest
+                    <div class="flex-1 text-right">
                         <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
                             <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
+                    </div>
                     @else
+                    <div class="flex-1 text-right">
                         <span class="text-gray-300 text-sm pr-4">{{  Auth::user()->getUsername() }}</span>
 
-                        <a href="{{ route('logout') }}"
-                           class="no-underline hover:underline text-gray-300 text-sm p-3"
-                           onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                            {{ csrf_field() }}
-                        </form>
+{{--                        <a href="{{ route('logout') }}"--}}
+{{--                           class="no-underline hover:underline text-gray-300 text-sm p-3"--}}
+{{--                           onclick="event.preventDefault();--}}
+{{--                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>--}}
+{{--                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">--}}
+{{--                            {{ csrf_field() }}--}}
+{{--                        </form>--}}
+                    </div>
+                    <x-account-dropdown :user="Auth::user()" />
                     @endguest
-                </div>
             </div>
         </div>
     </nav>

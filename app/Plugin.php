@@ -34,4 +34,9 @@ class Plugin extends Model
     {
         return $this->releases->sortByDesc('created_at')->first();
     }
+
+    public function getRouteKeyName()
+    {
+        return 'url_string';
+    }
 }

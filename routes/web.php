@@ -48,3 +48,7 @@ Route::get('plugins/{plugin}', 'PluginController@show')->name('plugins.show');
 Route::get('plugins/{plugin}/{page}', 'PluginController@show')->name('plugins.show.page');
 
 Route::get('releases/{pluginRelease}', 'PluginReleaseController@show')->name('plugin-releases.show');
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function () {
+    Route::resource('users', 'UsersController', ['except' => ['show', 'create', 'store']]);
+});
