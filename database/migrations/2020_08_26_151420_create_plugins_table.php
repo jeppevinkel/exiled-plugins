@@ -20,6 +20,7 @@ class CreatePluginsTable extends Migration
             $table->text('description');
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->boolean('verified')->default(false);
             $table->timestamps();
         });
     }

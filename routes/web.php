@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Auth::routes(['verify' => true]);
 
-Route::get('login/steam', 'Auth\SteamAuthController@login');
+Route::get('login/steam', 'Auth\SteamAuthController@login')->name('authenticate.steam');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('home', 'HomeController@index')->name('home');

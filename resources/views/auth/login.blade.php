@@ -70,6 +70,19 @@
                         </div>
                     </form>
 
+                    <div class="flex flex-col p-4 text-gray-200">
+                        <div class="flex text-center pb-4 before:border">
+                            <div class="mx-auto flex-1 h-2.5 align-middle border-b-2 border-solid border-highlight"></div>
+                            <p class="px-3">Or continue with</p>
+                            <div class="mx-auto flex-1 h-2.5 align-middle border-b-2 border-solid border-highlight"></div>
+                        </div>
+
+                        <div class="flex justify-center space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-12">
+                            <a class="bg-highlight py-2 px-7 rounded text-center text-xl text-background hover:bg-background hover:text-highlight" href="{{ route('authenticate.steam') }}"><i class="fab fa-steam w-12"></i></a>
+                            <a class="bg-highlight py-2 px-7 rounded text-center text-xl text-background hover:bg-background hover:text-highlight" href="{{ route('authenticate.steam') }}"><i class="fab fa-steam-square w-12"></i></a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
