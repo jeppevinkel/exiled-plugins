@@ -4,7 +4,7 @@
     <div class="container mx-auto">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-sm">
-                <div class="flex flex-col break-words bg-foreground border-2 rounded shadow-md">
+                <div class="flex flex-col break-words bg-foreground rounded shadow-md">
 
                     <div class="font-semibold bg-highlight text-gray-200 py-3 px-6 mb-0">
                         {{ __('Login') }}
@@ -46,18 +46,17 @@
                                 <input type="checkbox" name="remember" id="remember" class="form-checkbox" {{ old('remember') ? 'checked' : '' }}>
                                 <span class="ml-2">{{ __('Remember Me') }}</span>
                             </label>
-                        </div>
-
-                        <div class="flex flex-wrap items-center">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                {{ __('Login') }}
-                            </button>
-
                             @if (Route::has('password.request'))
                                 <a class="text-sm text-fifth hover:text-fourth whitespace-no-wrap no-underline ml-auto" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
+                        </div>
+
+                        <div class="flex flex-wrap items-center">
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline">
+                                {{ __('Login') }}
+                            </button>
 
                             @if (Route::has('register'))
                                 <p class="w-full text-xs text-center text-gray-200 mt-8 -mb-4">
