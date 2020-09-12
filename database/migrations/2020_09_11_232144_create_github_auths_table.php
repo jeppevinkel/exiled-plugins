@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSteamAuthsTable extends Migration
+class CreateGithubAuthsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,12 @@ class CreateSteamAuthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('steam_auths', function (Blueprint $table) {
-            if (PHP_INT_MAX >= 9223372036854775807)
-            {
-                $table->unsignedBigInteger('id')->unique()->index();
-            }
-            else
-            {
-                $table->string('id')->unique()->index();
-            }
+        Schema::create('github_auths', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->unique()->index();
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('avatar');
             $table->string('name');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -36,6 +30,6 @@ class CreateSteamAuthsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('steam_auths');
+        Schema::dropIfExists('github_auths');
     }
 }

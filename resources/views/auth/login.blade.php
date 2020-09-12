@@ -4,12 +4,7 @@
     <div class="container mx-auto">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-sm">
-                <div class="flex flex-col break-words bg-foreground rounded shadow-md">
-
-                    <div class="font-semibold bg-highlight text-gray-200 py-3 px-6 mb-0">
-                        {{ __('Login') }}
-                    </div>
-
+                <x-card title="{{ __('Login') }}" class="flex-col break-words">
                     <form class="w-full p-6" method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -76,13 +71,15 @@
                             <div class="mx-auto flex-1 h-2.5 align-middle border-b-2 border-solid border-highlight"></div>
                         </div>
 
-                        <div class="flex justify-center space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-12">
-                            <a class="bg-highlight py-2 px-7 rounded text-center text-xl text-background hover:bg-background hover:text-highlight" href="{{ route('authenticate.steam') }}"><i class="fab fa-steam w-12"></i></a>
-                            <a class="bg-highlight py-2 px-7 rounded text-center text-xl text-background hover:bg-background hover:text-highlight" href="{{ route('authenticate.steam') }}"><i class="fab fa-steam-square w-12"></i></a>
+                        <div class="flex flex-col justify-center space-y-5">
+                            <div class="flex justify-center m-0 space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-12">
+                                <a class="bg-highlight py-2 px-7 rounded text-center text-xl text-background hover:bg-background hover:text-highlight" href="{{ route('authenticate.steam') }}"><i class="fab fa-steam w-12"></i></a>
+                                <a class="bg-highlight py-2 px-7 rounded text-center text-xl text-background hover:bg-background hover:text-highlight" href="{{ route('authenticate.discord') }}"><i class="fab fa-discord w-12"></i></a>
+                                <a class="bg-highlight py-2 px-7 rounded text-center text-xl text-background hover:bg-background hover:text-highlight" href="{{ route('authenticate.github') }}"><i class="fab fa-github w-12"></i></a>
+                            </div>
                         </div>
                     </div>
-
-                </div>
+                </x-card>
             </div>
         </div>
     </div>

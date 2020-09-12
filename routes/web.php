@@ -21,6 +21,12 @@ Auth::routes(['verify' => true]);
 
 Route::get('login/steam', 'Auth\SteamAuthController@login')->name('authenticate.steam');
 
+Route::get('login/discord', 'Auth\LoginController@redirectToDiscord')->name('authenticate.discord');
+Route::get('login/discord/callback', 'Auth\LoginController@handleDiscordCallback')->name('authenticate.discord.callback');
+
+Route::get('login/github', 'Auth\LoginController@redirectToGithub')->name('authenticate.github');
+Route::get('login/github/callback', 'Auth\LoginController@handleGithubCallback')->name('authenticate.github.callback');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('home', 'HomeController@index')->name('home');
 

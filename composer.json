@@ -16,7 +16,11 @@
         "hashids/hashids": "^4.0",
         "ilzrv/laravel-steam-auth": "^1.0",
         "laravel/framework": "^7.24",
-        "laravel/tinker": "^2.0"
+        "laravel/socialite": "^5.0",
+        "laravel/tinker": "^2.0",
+        "socialiteproviders/discord": "^2.0",
+        "socialiteproviders/github": "^1.0",
+        "socialiteproviders/steam": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

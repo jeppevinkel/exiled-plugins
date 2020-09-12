@@ -10,18 +10,14 @@
                 </div>
             @endif
 
-            <div class="flex flex-col break-words bg-foreground border border-2 rounded shadow-md">
-
-                <div class="font-semibold bg-highlight text-gray-200 py-3 px-6 mb-0">
-                    Dashboard
-                </div>
+            <x-card title="Home">
 
                 <div class="w-full p-6">
                     <p class="text-gray-200">
                         You are logged in!
                     </p>
                 </div>
-            </div>
+            </x-card>
         </div>
     </div>
 @endsection

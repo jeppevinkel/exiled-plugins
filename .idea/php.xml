@@ -116,6 +116,12 @@
       <path value="$PROJECT_DIR$/vendor/laravel-frontend-presets/tailwindcss" />
       <path value="$PROJECT_DIR$/vendor/ilzrv/laravel-steam-auth" />
       <path value="$PROJECT_DIR$/vendor/hashids/hashids" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/steam" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/manager" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/discord" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/github" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

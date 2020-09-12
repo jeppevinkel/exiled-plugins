@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Auth\DiscordAuth;
+use App\Auth\GithubAuth;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -52,12 +54,26 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(SteamAuth::class);
     }
 
+    public function discordAuth()
+    {
+        return $this->hasOne(DiscordAuth::class);
+    }
+
+    public function githubAuth()
+    {
+        return $this->hasOne(GithubAuth::class);
+    }
+
     public function getUsername()
     {
         if ($this->name)
             return $this->name;
         if ($this->steamAuth)
             return $this->steamAuth->name;
+        if ($this->discordAuth)
+            return $this->discordAuth->name;
+        if ($this->githubAuth)
+            return $this->githubAuth->name;
         return 'no-name';
     }
 
@@ -65,8 +81,11 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         if ($this->steamAuth)
             return $this->steamAuth->avatar;
-        else
-            return "https://st3.depositphotos.com/1767687/16607/v/450/depositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg";
+        if ($this->discordAuth)
+            return $this->discordAuth->avatar;
+        if ($this->githubAuth)
+            return $this->githubAuth->avatar;
+        return "https://st3.depositphotos.com/1767687/16607/v/450/depositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg";
     }
 
     public function hasAnyRoles($roles)
