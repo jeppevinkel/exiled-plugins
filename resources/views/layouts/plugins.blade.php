@@ -21,6 +21,12 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/gruvbox-dark.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/markdown.css') }}" rel="stylesheet" type="text/css" >
 </head>

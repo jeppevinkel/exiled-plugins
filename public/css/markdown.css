@@ -103,7 +103,7 @@
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 0.875rem;
     display: inline;
-    background-color: #edf2f7;
+    background-color: #363738;
     border-radius: 0.25rem;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
@@ -121,7 +121,8 @@
     display: block;
     background-color: transparent;
     padding: 0;
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: visible;
     border-radius: 0;
 }
 
