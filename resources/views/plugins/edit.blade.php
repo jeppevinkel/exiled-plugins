@@ -41,19 +41,21 @@
                         <div class="appearance-none block w-full h-full bg-gray-600 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight markdown" id="plugin-description-preview">
 
                         </div>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
                         <script>
                             $(function() {
                                 // When using more than one `textarea` on your page, change the following
                                 // line to match the one you’re after.
                                 var $textarea = $('#plugin-description');
                                 var $preview = $('#plugin-description-preview');
-                                var convert = new showdown.Converter();
+                                var md = new Remarkable.Remarkable({
+                                    highlight: function (str, lang) {
+                                        return hljs.highlightAuto(str).value;
+                                    }
+                                }).use(Linkify.linkify);
 
                                 // Instead of `keyup`, consider using `input` using this plugin: https://mathiasbynens.be/notes/oninput#comment-1
                                 $textarea.keyup(function() {
-                                    $preview.html(convert.makeHtml($textarea.val()));
-                                    console.log('test');
+                                    $preview.html(md.render($textarea.val()));
                                 }).trigger('keyup');
                             });
                         </script>

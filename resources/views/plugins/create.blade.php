@@ -52,7 +52,7 @@
                                 // Instead of `keyup`, consider using `input` using this plugin: https://mathiasbynens.be/notes/oninput#comment-1
                                 $textarea.keyup(function() {
                                     $preview.html(convert.makeHtml($textarea.val()));
-                                    console.log('test');
+                                    hljs.initHighlighting();
                                 }).trigger('keyup');
                             });
                         </script>

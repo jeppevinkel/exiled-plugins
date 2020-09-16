@@ -24,7 +24,7 @@
     <link rel="stylesheet"
           href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/gruvbox-dark.min.css">
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>hljs.debugMode();hljs.initHighlightingOnLoad();</script>
 
 <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
