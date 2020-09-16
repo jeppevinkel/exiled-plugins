@@ -3,7 +3,8 @@
 @section('title', 'Create Release')
 
 @section('content')
-    <div class="bg-foreground pb-4 px-4 rounded-md w-full text-white">
+{{--    <div class="bg-foreground pb-4 px-4 rounded-md w-full text-white">--}}
+        <x-card title="Create Release">
         <div class="">
 
         </div>
@@ -56,5 +57,6 @@
         <div class="overflow-x-auto mt-6">
 
         </div>
-    </div>
+        </x-card>
+{{--    </div>--}}
 @endsection

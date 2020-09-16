@@ -40,12 +40,19 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('plugins', function () {
-    $plugins = \App\Plugin::orderBy('updated_at', 'desc')->paginate(25);
+    $plugins = \App\Plugin::orderBy('verified', 'desc')
+        ->orderBy('last_release_date', 'desc')
+        ->withLastReleaseDate()
+        ->paginate(25);
     return view('plugins.index')->with(['plugins' => $plugins]);
 })->name('plugins.index');
 
 Route::get('plugins/categories/{category}', function ($category) {
-    $plugins = \App\Plugin::where('category_id', '=', $category)->orderBy('updated_at', 'desc')->paginate(25);
+    $plugins = \App\Plugin::where('category_id', '=', $category)
+        ->orderBy('verified', 'desc')
+        ->orderBy('last_release_date', 'desc')
+        ->withLastReleaseDate()
+        ->paginate(25);
     return view('plugins.index')->with(['plugins' => $plugins]);
 })->name('plugins.index.category.show');
 

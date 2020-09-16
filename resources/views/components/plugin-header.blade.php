@@ -1,5 +1,5 @@
-<div class="flex justify-between w-full pt-6">
-    <p class="ml-3">{{ $plugin->name }}</p>
+<div class="flex justify-end w-full pt-6">
+{{--    <p class="ml-3">{{ $plugin->name }}</p>--}}
 
     <div class="flex justify-end">
         @if(Auth::user() == $plugin->user)
