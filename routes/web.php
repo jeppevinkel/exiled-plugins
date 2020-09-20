@@ -31,12 +31,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('home', 'HomeController@index')->name('home');
 
     Route::get('plugins/create', 'PluginController@create')->name('plugins.create');
-    Route::post('plugins', 'PluginController@store')->name('plugins.store');
+    Route::post('plugins', 'PluginController@store')->middleware('throttle:3,5')->name('plugins.store');
     Route::get('plugins/{plugin}/edit', 'PluginController@edit')->name('plugins.edit');
     Route::put('plugins/{plugin}', 'PluginController@update')->name('plugins.update');
 
     Route::get('plugins/{plugin}/releases/create', 'PluginReleaseController@create')->name('plugin-releases.create');
-    Route::post('plugins/{plugin}/releases', 'PluginReleaseController@store')->name('plugin-releases.store');
+    Route::post('plugins/{plugin}/releases', 'PluginReleaseController@store')->middleware('throttle:10,5')->name('plugin-releases.store');
 });
 
 Route::get('plugins', function () {
