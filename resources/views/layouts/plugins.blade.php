@@ -31,7 +31,7 @@
     <link href="{{ asset('css/markdown.css') }}" rel="stylesheet" type="text/css" >
 </head>
 <body class="bg-background h-screen antialiased leading-none">
-<div id="app">
+<div id="app" class="flex flex-col h-screen">
     <nav class="bg-first shadow mb-8 py-6">
         <div class="container mx-auto px-6 md:px-0">
             <div class="flex items-center justify-center">
@@ -64,9 +64,22 @@
             </div>
         </div>
     </nav>
-    <div class="container mx-auto px-6 md:px-0">
+    <div class="container mx-auto px-6 md:px-0 flex-grow">
         @yield('content')
     </div>
+    <footer class="bg-first shadow mt-8 py-3.5">
+        <div class="container mx-auto px-6 md:px-0">
+            <div class="flex items-center justify-start">
+                <div class="mr-6 text-gray-100">
+                    <p>Source code:
+                    <a href="https://github.com/jeppevinkel/exiled-plugins/" target="_blank" class="font-semibold no-underline">
+                        https://github.com/jeppevinkel/exiled-plugins/
+                    </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 </body>
 </html>
