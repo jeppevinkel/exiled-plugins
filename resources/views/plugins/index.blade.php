@@ -3,6 +3,13 @@
 @section('content')
     {{--        <div class="bg-foreground pb-4 px-4 rounded-md w-full flex text-white">--}}
     <x-card title="Plugins" class="flex">
+
+        <x-slot name="contextButtons">
+            @auth
+                <a href="{{ route('plugins.create') }}"><i class="fas fa-plus-square"></i></a>
+            @endauth
+        </x-slot>
+
         <div id="categories" class="w-1/6">
             <div class="flex flex-col w-full pt-6">
                 <p class="ml-3 font-bold">Categories</p>

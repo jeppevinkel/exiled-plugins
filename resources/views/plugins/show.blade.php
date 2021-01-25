@@ -7,9 +7,11 @@
     <x-card :title="$plugin->name" class="">
 
         <x-slot name="contextButtons">
-            <a href="{{ route('plugins.edit', ['plugin' => $plugin]) }}"><i class="fas fa-pencil-alt"></i></a>
-            <a href="{{ route('plugins.edit', ['plugin' => $plugin]) }}"><i class="far fa-edit"></i></a>
-            <a href="{{ route('plugins.edit', ['plugin' => $plugin]) }}"><i class="fas fa-edit"></i></a>
+{{--            <a href="{{ route('plugins.edit', ['plugin' => $plugin]) }}"><i class="fas fa-pencil-alt"></i></a>--}}
+{{--            <a href="{{ route('plugins.edit', ['plugin' => $plugin]) }}"><i class="far fa-edit"></i></a>--}}
+            @if(Auth::user() == $plugin->user)
+                <a href="{{ route('plugins.edit', ['plugin' => $plugin]) }}"><i class="fas fa-edit"></i></a>
+            @endif
             @if(count($plugin->releases))
                 <a href="{{ route('plugin-releases.show', ['pluginRelease' => $plugin->getLatestRelease()]) }}"><i class="fa fa-download" aria-hidden="true"></i></a>
             @endif
