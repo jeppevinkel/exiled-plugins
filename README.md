@@ -2,7 +2,7 @@
 
 EXILED-Plugins is a page for finding and sharing plugins.
 
-It's currently a WIP site, but a demo page is hosted [here](https://plugins.jeppdev.com) while it's being developed.
+It's currently a WIP site, but a beta page is hosted [here](https://mudpool.net) while it's being developed.
 
 ## Security Vulnerabilities
 
